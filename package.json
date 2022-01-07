@@ -1,0 +1,26 @@
+{
+  "name": "og-images",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index",
+    "dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/libscie/og-images.git"
+  },
+  "author": "Liberate Science GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/libscie/og-images/issues"
+  },
+  "homepage": "https://github.com/libscie/og-images#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15",
+    "puppeteer": "^13.0.1"
+  }
+}
