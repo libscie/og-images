@@ -11,10 +11,10 @@ app.get("/api/researchequals", async function (req, res) {
     deviceScaleFactor: 1,
   });
 
-  await page.goto("https://researchequals.com");
-  // const content = await page.$("#hero")
-  const content = await page.$("body");
-  // await page.click("#rcc-confirm-button")
+  await page.goto("https://researchequals.com/");
+  const content = await page.$("#hero")
+  // const content = await page.$("body");
+  await page.click("#rcc-confirm-button")
 
   const imageBuffer = await content.screenshot({ omitBackground: true });
 
