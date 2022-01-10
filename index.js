@@ -13,7 +13,6 @@ app.get("/api/researchequals", async function (req, res) {
 
   await page.goto("https://researchequals.com/");
   const content = await page.$("#hero")
-  // const content = await page.$("body");
   await page.click("#rcc-confirm-button")
 
   const imageBuffer = await content.screenshot({ omitBackground: true });
