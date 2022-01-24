@@ -166,6 +166,9 @@ app.get("/api/module", async function (req, res) {
     `
     <html>
     <head>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@400;600&display=swap" rel="stylesheet"> 
       <style>
         * {
           margin: 0;
