@@ -160,7 +160,7 @@ app.get("/api/workspace", async function (req, res) {
 
 app.get("/api/module", async function (req, res) {
   const params = req.query
-  const authors = params.avatar.split(',')
+  const authors = params.avatars.split(',')
   console.log(authors)
   const imageBuffer = await htmlToImage(
     `
