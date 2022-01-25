@@ -17,7 +17,6 @@ const htmlToImage = async (html = "") => {
   return imageBuffer
 }
 
-app.use(express.static("./public"));
 app.get("/api/researchequals", async function (req, res) {
   const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
@@ -161,7 +160,6 @@ app.get("/api/workspace", async function (req, res) {
 app.get("/api/module", async function (req, res) {
   const params = req.query
   const authors = params.avatars.split(',')
-  console.log(authors)
   const imageBuffer = await htmlToImage(
     `
     <html>
