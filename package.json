@@ -20,6 +20,7 @@
   "homepage": "https://github.com/libscie/og-images#readme",
   "dependencies": {
     "express": "^4.17.2",
+    "memory-cache": "^0.2.0",
     "nodemon": "^2.0.15",
     "puppeteer": "^13.0.1"
   }

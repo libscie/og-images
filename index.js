@@ -1,6 +1,27 @@
 const express = require("express"); // Adding Express
+const mcache = require("memory-cache");
+
+
 const app = express(); // Initializing Express
 const puppeteer = require("puppeteer"); // Adding Puppeteer
+
+const cache = (duration) => {
+  return (req, res, next) => {
+    const key = '__express__' + req.originalUrl || req.url
+    const cachedBody = mcache.get(key)
+    if (cachedBody) {
+      res.send(cachedBody)
+      return
+    } else {
+      res.sendResponse = res.send
+      res.send = (body) => {
+        mcache.put(key, body, duration * 1000);
+        res.sendResponse(body)
+      }
+      next()
+    }
+  }
+}
 
 const htmlToImage = async (html = "") => {
   const browser = await puppeteer.launch({ args: ["--no-sandbox"] })
@@ -17,7 +38,7 @@ const htmlToImage = async (html = "") => {
   return imageBuffer
 }
 
-app.get("/api/researchequals", async function (req, res) {
+app.get("/api/researchequals", cache(10), async function (req, res) {
   const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
   await page.setViewport({
@@ -41,7 +62,7 @@ app.get("/api/researchequals", async function (req, res) {
   res.end(imageBuffer);
 });
 
-app.get("/api/workspace", async function (req, res) {
+app.get("/api/workspace", cache(10), async function (req, res) {
   const params = req.query
 
   const imageBuffer = await htmlToImage(
@@ -157,7 +178,7 @@ app.get("/api/workspace", async function (req, res) {
   res.end(imageBuffer)
 });
 
-app.get("/api/module", async function (req, res) {
+app.get("/api/module", cache(10), async function (req, res) {
   const params = req.query
   const authors = params.avatars.split(',')
   const imageBuffer = await htmlToImage(
