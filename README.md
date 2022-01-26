@@ -42,4 +42,4 @@ No params!
 | `type`        | String                             | Data analysis                                                                                                                                                 |
 | `publishedAt` | String                             | `1970-01-01`                                                                                                                                                  |
 | `license`     | String                             | CC-BY 4.0                                                                                                                                                     |
-| `avatars`     | String of URLs, separated by comma | `https://avatars.githubusercontent.com/u/2946344?v=4,https://avatars.githubusercontent.com/u/2946344?v=4,https://avatars.githubusercontent.com/u/2946344?v=4` |
+| `avatars`     | String of URLs, separated by semi-colon | `https://avatars.githubusercontent.com/u/2946344?v=4;https://avatars.githubusercontent.com/u/2946344?v=4;https://avatars.githubusercontent.com/u/2946344?v=4` |
